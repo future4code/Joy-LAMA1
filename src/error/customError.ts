@@ -1,4 +1,11 @@
-export class CustomError extends Error {
+export abstract class BaseError extends Error {
+    constructor(message: string, public code: number) {
+      super(message);
+    }
+  }
+
+
+  export class CustomError extends Error {
     constructor(statusCode: number, message: string){
         super(message)
     }
@@ -27,3 +34,4 @@ export class UserNotFoud extends CustomError{
         super(404, "Usuário não encontrado")
     }
 }
+  

@@ -1,36 +1,31 @@
-CREATE TABLE cookenu_User (
-	id VARCHAR(255) PRIMARY KEY, 
-    name VARCHAR(255) NULL, 
-    email VARCHAR(255) UNIQUE NOT NULL,
-    password VARCHAR(255) NOT NULL
-);
-CREATE TABLE cookenu_Login (
-	id VARCHAR(255) PRIMARY KEY, 
-    email VARCHAR(255) UNIQUE NOT NULL,
-    password VARCHAR(255) NOT NULL
+CREATE TABLE IF NOT EXISTS LAMA_BANDAS (
+  id VARCHAR(255) PRIMARY KEY,
+  name VARCHAR(255) UNIQUE NOT NULL,
+  music_genre VARCHAR(255) NOT NULL,
+  responsible VARCHAR(255) UNIQUE NOT NULL 
 );
 
-
-CREATE TABLE cookenu_Recipes (
-	id VARCHAR(255) PRIMARY KEY, 
-    title VARCHAR(255) NOT NULL, 
-    description TEXT NOT NULL, 
-    cratedAt DATE,
-    authorId varchar(255) NOT NULL,
-    FOREIGN KEY (authorId) REFERENCES cookenu_User(id)
+CREATE TABLE IF NOT EXISTS LAMA_SHOWS  (
+  id VARCHAR(255) PRIMARY KEY,
+  week_day VARCHAR(255) NOT NULL,
+  start_time INT NOT NULL,
+  end_time INT NOT NULL,
+  band_id VARCHAR(255) NOT NULL,
+  FOREIGN KEY(band_id) REFERENCES LAMA_BANDAS(id)
 );
-CREATE TABLE friend_relation (
-	user_id VARCHAR(255),
-    friend_id VARCHAR(255),
-    FOREIGN KEY (user_id) REFERENCES cookenu_User(id)
- 
+CREATE TABLE IF NOT EXISTS LAMA_USUARIOS (
+  id VARCHAR(255) PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  email VARCHAR(255) NOT NULL UNIQUE,
+  password VARCHAR(255) NOT NULL,
+  role VARCHAR(255) NOT NULL DEFAULT "NORMAL"
 );
 
-INSERT INTO  Labook_Recipes(id,title,description,cratedAt)
-VALUES("001", "Arroz doce","Arroz + 1 xicara de açuca","2022-01-02","001");
+INSERT INTO  LAMA_BANDAS(id,name,music_genre,responsible)
+VALUES("001", "Sepultura","Trash Metal","Derik");
+INSERT INTO  LAMA_USUARIOS(id,name,email,password,role)
+VALUES("001","Max","max@metal.com","M4XM3T4L","ADMIN");
+INSERT INTO  LAMA_SHOWS (id,week_day,start_time,end_time,band_id)
+VALUES("002","Sunday","18","19","001");
 
-INSERT INTO  cookenu_User(id,name,email,password)
-VALUES("001", "Goku","Goku@dagonball.com","123456789");
-
-INSERT INTO  cookenu_Login(id,name,email,password)
-VALUES("001", "Goku","Goku@dagonball.com","123456789");
+select * from LAMA_SHOWS ;

@@ -10,6 +10,9 @@ Para isso já deixamos algumas tabelas prontas para vocês não precisarem se pr
 
 ##
 ### O que Funciona 
+- Signup
+- Login
+
 ##### Endpoints GET('/banda:id','/show' ), POST('/signup','/login','/banda','/show'),DELETE('/banda/:id',)
 ##
 ### Autores 

@@ -1,19 +1,73 @@
 # Labenu Music Awards
-Como você deve saber muito bem, o nosso querido chefinho Astrodev é uma pessoa com Networking incrível e ele conhece vários artistas estrelados. Além disso, ele também é um grande ~~megalomaníaco~~ visionário e está planejando fazer um grande evento: o **LAMA**, *Labenu Musical Awards*, um festival  com várias bandas famosas para a formatura da sua turma e, no final, vocês podem eleger a banda que mais gostaram! Entretanto, na opinião dele, vocês só serão merecedores se entregarem um sistema impecável que permita o gerenciamento completo desses shows.
 
-Para isso já deixamos algumas tabelas prontas para vocês não precisarem se preocupar com a modelagem do banco. Deixamos também um template do projeto já com a estrutura da parte de usuários. Vocês podem usá-las a vontade, mas, se quiser fazer do zero sem esse auxílio, também pode.
-### API LAMA 
+## :memo: Funcionalidades
 
-#### Esta API Tem o intuito de Criar usuário, efetuar login e autenticação, adicionar Bandas, remover Bandas, Adicionar shows e consultar todos os shows.
-### Link da Documentação
-#### [API LAMA ](https://documenter.getpostman.com/view/15418246/UzJHPcVY)
-
-##
-### O que Funciona 
 - Signup
 - Login
+- Adição de banda
+- Adicionar banda a algum show
+- Criação/venda de tickets
+- Procurar banda por id ou nome
+- Procurar todos os shows que irão ter em determinado dia
 
-##### Endpoints GET('/banda:id','/show' ), POST('/signup','/login','/banda','/show'),DELETE('/banda/:id',)
-##
-### Autores 
-#### [Athos e Heber]
+## 💻 Documentação
+
+Teste as rotas com a documentação, basta importar ela para seu postman.
+
+[Postman - LAMA] https://documenter.getpostman.com/view/15418246/UzJHPcVY
+
+## ✨ Tecnologias
+
+Esse projeto foi desenvolvido com as seguintes tecnologias:
+
+- Node
+- Express
+- Typescript
+- MySQL
+
+
+
+## 🚀 Como executar
+
+- Instale as dependências com
+
+```
+npm install
+```
+
+- Crie um arquivo .env
+
+```
+touch .env
+```
+
+- Preencha o arquivo .env
+
+```
+DB_HOST = Coloque aqui seu endereço do banco de dados
+DB_USER = Coloque aqui seu usuário
+DB_PASSWORD = Coloque aqui sua senha
+DB_SCHEMA = Coloque aqui o nome do banco de dados
+JWT_KEY = Coloque aqui sua chave(aleatório)
+JWT_EXPIRE_TIME = Coloque aqui o tempo que de expirar sua chave.
+BCRYPT_COST = Coloque aqui um valor(O valor padrão é 12)
+```
+
+- Crie as tabelas com
+
+```
+npm run migrations
+```
+
+- Inicie o servidor com
+
+```
+npm run dev
+```
+
+
+
+## Desenvolvido por:
+
+Athos e Heber https://github.com/future4code/Joy-LAMA1
+
